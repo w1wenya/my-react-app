@@ -23,6 +23,10 @@ export default class Home extends React.Component{
             isShowa:!this.state.isShowa
         })
     }
+    changeType=(e)=>{
+        this.props.chageType(e.target.dataset.type)
+        this.changeShow()
+    }
     render(){
         return (
             <div className="home-header">
@@ -45,19 +49,16 @@ export default class Home extends React.Component{
                                 <ul className="home-header-list" style={{
                                     ...defaultStyle,
                                     ...transitionStyles[state]
-                                }}>
-                                    <li>全部课程</li>
-                                    <li>全部课程</li>
-                                    <li>全部课程</li>
+                                }}   onClick={this.changeType.bind(this)}>
+                                    <li data-type="0">全部课程</li>
+                                    <li data-type="1">react课程</li>
+                                    <li data-type="2">vue课程</li>
                                 </ul>
                             )
 
                         }
                     </Transition>
-                    {/*{this.state.isShowa?<ul className="home-header-list">*/}
-                        {/*<li>全部课程</li>*/}
-                        {/*<li>全部课程</li><li>全部课程</li>*/}
-                    {/*</ul>:null}*/}
+
 
                 </div>
             </div>
