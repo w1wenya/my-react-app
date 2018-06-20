@@ -1,11 +1,12 @@
 import React from 'react'
 import './index.less'
 import HomeHeader from './Homeheader'
+import HomeSlider from './HomeSlider'
 import actions from '../../store/actions/home'
 import {connect} from 'react-redux'
  class Home extends React.Component{
     componentDidMount(){
-        console.log(this.props)
+        this.props.setSliders()
     }
     changeType = (value)=>{
         this.props.setCurrentLesson(value)
@@ -17,7 +18,16 @@ import {connect} from 'react-redux'
     }
     render(){
         return (
-            <HomeHeader chageType={this.changeType}></HomeHeader>
+
+            <div>
+                <HomeHeader chageType={this.changeType}></HomeHeader>
+                <div className="content">
+                    {
+                        this.props.slider.loading?<div>正在加载</div>:  <HomeSlider list={this.props.slider.list}></HomeSlider>
+                    }
+
+                </div>
+            </div>
         )
     }
 }
