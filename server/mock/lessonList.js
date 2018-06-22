@@ -5,30 +5,35 @@ module.exports ={
             url:'http://www.fullstackjavascript.cn/images/vue.png',
             lesson:'Vue.js从理论精讲到项目实战课程',
             lessonId:111,
+            type:1,
             price:'￥1000.00元'
         },
         {
             url:'http://www.fullstackjavascript.cn/images/xiaochengxu.png',
             lesson:'Vue.js从理论精讲到项目实战课程',
             lessonId:222,
+            type:1,
             price:'￥2000.00元'
         },
         {
             url:'http://www.fullstackjavascript.cn/images/javascript.png',
             lesson:'Vue.js从理论精讲到项目实战课程',
             lessonId:333,
+            type:1,
             price:'￥3000.00元'
         },
         {
             url:'http://www.fullstackjavascript.cn/images/angular.png',
             lesson:'Vue.js从理论精讲到项目实战课程',
             lessonId:444,
+            type:2,
             price:'￥4000.00元'
         },
         {
             url:'http://www.fullstackjavascript.cn/images/reactnative.png',
             lesson:'Vue.js从理论精讲到项目实战课程',
             lessonId:555,
+            type:2,
             price:'￥5000.00元'
         }
     ]
