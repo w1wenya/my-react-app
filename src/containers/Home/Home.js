@@ -7,6 +7,8 @@ import {connect} from 'react-redux'
  class Home extends React.Component{
     componentDidMount(){
         this.props.setSliders()
+        this.props.setLesson()
+        console.log(this.props.lesson.list)
     }
     changeType = (value)=>{
         this.props.setCurrentLesson(value)

@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactSwipe from 'react-swipe'
+//import ReactSwipe from 'react-swipe'
 export default class HomeSlider extends React.Component{
 
     render(){
