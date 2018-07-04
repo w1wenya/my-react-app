@@ -9,7 +9,7 @@ let initState = {
         loading:false,//是否正在加载
         hasMore:true,//有没有更多数据
         offset:0,////    偏移量
-         limit:5,//每次限制5条
+         limit:2,//每次限制5条
         list:[]
     }
 }
@@ -27,11 +27,24 @@ function home(state=initState,action) {
         case types.GET_LESSONS_SUCCESS:
             return{...state,lesson:{
                     ...state.lesson,
-                loading:false,
+                    loading:false,
                     hasMore:action.payload.hasMore,
-                    list:[...state.lesson.list,action.payload.list],
-                    offset:state.lesson.offset+state.lesson.list.length
+                    list:[...state.lesson.list,...action.payload.list],
+                    offset:state.lesson.offset+action.payload.list.length
             }}
+        case types.CLEAR_LESSON:
+            return{
+                ...state,
+                lesson:{
+                    ...state.lesson,
+                    offset:0,
+                    list:[]
+
+                }
+
+            }
+
+
     }
     return state
 }

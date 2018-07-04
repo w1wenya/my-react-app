@@ -4,10 +4,15 @@ import store from './store/index'
 import {Provider} from 'react-redux'
 import './commen/index.less'
 import Home from './containers/Home/Home'
-import Profile from './containers/Profile/Profile'
-import Lesson from './containers/Lesson/Lession'
+import async from './asyncComponent'
+let Profile = async(()=>import('./containers/Profile/Profile'))
 
+import Lesson from './containers/Lesson/Lession'
+import Login from './containers/Login/Login'
+import Detail from './containers/Detail/Detail'
 import TabBar from './components/TabBar/TabBar'
+import PrivateRoute from './PrivateRoute/PrivateRoute'
+
 
 import {HashRouter, Route, Switch} from 'react-router-dom';
 
@@ -18,8 +23,10 @@ ReactDOM.render(
             <div>
                 <Switch>
                     <Route path="/home" component={Home} />
-                    <Route path="/lesson" component={Lesson} />
+                    <PrivateRoute path="/lesson" component={Lesson} />
                     <Route path="/profile" component={Profile} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/detail/:lessonId" component={Detail} />
                 </Switch>
                 <TabBar></TabBar>
             </div>

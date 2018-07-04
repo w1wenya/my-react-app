@@ -3,7 +3,18 @@ import {getSliders,getLessons} from "../../api/home";
 
 let action ={
     setCurrentLesson(type){
-        return {type:types.SET_CURRENT_LESSON,lesson:type}
+        return (dispath,getstate)=>{
+           dispath({type:types.SET_CURRENT_LESSON,lesson:type})
+            dispath({type:types.CLEAR_LESSON})
+          action.setLesson()(dispath,getstate)//根据所选类型，获取数据
+        }
+        return
+    },
+    refresh(){
+        return (dispath,getState)=>{
+            dispath({type:types.CLEAR_LESSON})
+            action.setLesson()(dispath,getState)
+        }
     },
     setSliders(){
             return(dispatch)=>{
@@ -21,5 +32,6 @@ let action ={
 
         }
     }
+
 }
 export default action
